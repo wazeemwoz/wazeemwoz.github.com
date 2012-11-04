@@ -1,0 +1,68 @@
+task :default => [:"deploy:upload_master"]
+
+desc "deploy jekyll site"
+namespace :deploy do   
+  desc "checkout dev"
+  task :branch_dev do
+    puts "Checkout dev"
+    system('git checkout dev')
+  end
+
+  desc "run jekyll"
+  task :build_site => :branch_dev do
+    puts "building production _site"
+    system('jekyll --no-auto')
+    puts "building _site complete"
+  end
+  
+  desc "dev add"
+  task :dev_add => :build_site do
+    puts "adding changes to dev branch"
+    system('git add -A')
+    puts "git dev add complete"
+  end
+  
+  desc "dev commit"
+  task :dev_commit => :dev_add do
+    message = ENV["DEV_MESSAGE"] || "commit not described"
+    puts "commit changes to dev branch"
+    system("git commit -m '#{message}'")
+    puts "git dev commit complete"
+  end
+   
+  desc "push dev"
+  task :upload_dev => :dev_commit do
+    puts "pushing dev to github"
+    system('git push origin dev')
+    puts "upload dev complete"
+  end
+  
+  desc "change master"
+  task :change_master => :upload_dev do
+    message = ENV["DEV_MESSAGE"] || "commit not described"
+    puts "moving dev _site to master"
+    system("git update-ref refs/heads/master $(echo '#{message}' | git commit-tree dev\^{tree}:_site -p $(cat .git/refs/heads/master))")
+    puts "move complete"
+  end
+  
+  desc "checkout master"
+  task :branch_master => :change_master do
+    puts "checkout master"
+    system('git checkout master')
+  end
+  
+  desc "push master"
+  task :upload_master => :branch_master do
+    puts "pushing master to github"
+    system('git push -f origin master')
+    puts "upload master complete"
+  end
+  
+  desc "revert to jekyll"
+  task :jekyll => :upload_master do
+    puts "checking out dev"
+    system('git checkout dev')
+    puts "Rake task complete!"
+  end
+end
+  
