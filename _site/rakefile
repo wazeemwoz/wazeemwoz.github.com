@@ -26,7 +26,7 @@ namespace :deploy do
   task :dev_commit => :dev_add do
     message = ENV["DEV_MESSAGE"] || "commit not described"
     puts "commit changes to dev branch"
-    system("git commit -m '#{message}'")
+    system("git commit -m \"#{message}\"")
     puts "git dev commit complete"
   end
    
@@ -41,7 +41,7 @@ namespace :deploy do
   task :change_master => :upload_dev do
     message = ENV["DEV_MESSAGE"] || "commit not described"
     puts "moving dev _site to master"
-    system("git update-ref refs/heads/master $(echo '#{message}' | git commit-tree dev\^{tree}:_site -p $(cat .git/refs/heads/master))")
+    system("git update-ref refs/heads/master $(echo \"#{message}\" | git commit-tree dev\^{tree}:_site -p $(cat .git/refs/heads/master))")
     puts "move complete"
   end
   
