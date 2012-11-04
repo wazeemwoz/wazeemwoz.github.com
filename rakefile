@@ -2,14 +2,9 @@ task :default => [:"deploy:upload_master"]
 
 desc "deploy jekyll site"
 namespace :deploy do   
-  desc "checkout dev"
-  task :branch_dev do
-    puts "Checkout dev"
-    system('git checkout dev')
-  end
 
   desc "run jekyll"
-  task :build_site => :branch_dev do
+  task :build_site do
     puts "building production _site"
     system('jekyll --no-auto')
     puts "building _site complete"
