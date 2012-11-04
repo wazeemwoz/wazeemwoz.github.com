@@ -1,0 +1,861 @@
+/* 
+ * Original AUTHOR: Mark Reid <mark@reid.name>
+ * Modified by Waseem Suleman
+ */
+
+/* @group Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td,abbr { margin:0; padding:0;}
+/* @end */
+
+body {
+	font-family: Palatino, georgia, "times new roman", serif;
+	background-color: whitesmoke;
+	background-position: center -18em;
+	background-repeat: repeat-x; 
+}
+
+#site {
+  max-width: 48em;
+  margin: 0em auto 3em auto;
+  line-height: 1.5em
+}
+
+#page {
+  background-color: white;
+  padding: 0em 3em 1.5em 3em;
+  border: 0;
+  -moz-box-shadow: 0px 3px 5px #aaa;
+  -webkit-box-shadow: 0px 3px 5px #aaa;
+  box-shadow: 0px 3px 5px #aaa;  
+}
+
+#bottom_block {
+  margin: 2em 0 1em 0;
+  padding: 0.6em 0 1em 0;
+  border-top: 0.4em solid lavender;
+}
+
+#header, #header a { color: #666; text-decoration: none; }
+#header .hover { color: transparent; }
+#header:hover a:hover { text-decoration: none; }
+#header a:hover .hover { color: silver; }
+
+#header {
+  padding: 0;
+	position: relative;
+	font-variant: small-caps;
+	margin-top: 0;
+	margin-bottom: 1em;
+  text-align: justify;
+}
+
+#header:after {
+  content:""; 
+  height:1px;
+  background: black;
+  background: -moz-linear-gradient(left, #FFFFFF 0%,#BBBBBB 50%,#FFFFFF 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FFFFFF), color-stop(50%, #BBBBBB), color-stop(100%,#FFFFFF)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #FFFFFF 0%,#BBBBBB 50%,#FFFFFF 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #FFFFFF 0%,#BBBBBB 50%,#FFFFFF 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #FFFFFF 0%,#BBBBBB 50%,#FFFFFF 100%); /* IE10+ */
+  background: linear-gradient(left, #FFFFFF 0%,#BBBBBB 50%,#FFFFFF 100%); /* W3C */
+  width:100%;
+  display:block;  
+}
+
+#title {
+  background: whitesmoke; /* Old browsers */
+  background: -moz-linear-gradient(left,  whitesmoke 0%, #fff 50%, whitesmoke 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,whitesmoke), color-stop(50%, #fff), color-stop(100%,whitesmoke)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* IE10+ */
+  background: linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* W3C */
+  padding: 20px 0 0 0;
+}
+
+#title h1 {
+	font-family: Palatino, georgia, "times new roman", serif;
+	margin-bottom: 0;
+	margin-top: 0;
+  display: block;
+	font-weight: normal;
+  font-size: 150%;
+  color: #8888FF;
+  text-align: center;
+}
+
+#header ul {
+	position: relative;
+	top: 0;
+	right: 0;
+	font-size: 100%;
+	line-height: 1.6em;
+	display: block;
+	margin: 0;
+	text-align: center;
+}
+#header ul li { display: inline; }
+#header ul li a {
+	padding: 0.4em 2em 0 2em;
+	display: inline;
+}
+#header ul li a:hover {
+	color: blue;
+  text-shadow: #aaa 2px 2px 3px;
+}
+#header .byline {
+	color: silver;
+	font-size: 10pt;
+	line-height: 75%
+}
+#header:hover .byline a { color: silver; text-shadow: none; }
+#header:hover .byline a:hover { color: black; text-shadow: #aaa 1px 1px 2px;}
+
+/* Hack via Joel Spolsky to make image rescaling nicer in IE */
+img { -ms-interpolation-mode:bicubic; }
+
+img.parentsize {
+  width: auto !important; /*override the width below*/
+  width: 100%;
+  max-width: 100%;
+}
+
+a img {border: none; }
+
+/* IE6 ignores this and uses default size of 16pt */
+html>body { font-size:16px; }
+p { margin: 0 0 1.5em 0; text-align: justify; }
+
+a { text-decoration: none; color: #339; }
+.thin_title:hover, .post_title:hover, .proj_title:hover, a:hover { text-decoration: none; color: #33f; }
+
+h1,h2,h3,h4 { 
+	line-height:1em; 
+	font-size:1.5em; 
+	font-weight: normal; 
+	clear: left; 	
+	font-family: 'lucida grande', sans-serif; 
+}
+h1 { margin-bottom: 1em; }
+h2 {
+	font-size: 100%;
+	line-height: 1.5em;
+	margin:1.5em 0 1.5em 0;
+	font-weight:bold;
+}
+h3 { font-size: 95%; margin-bottom: 1em; }
+
+hr { 
+	border-top: 1px solid #eee;
+	border-bottom: none;
+	padding: 0;
+	margin: 0 0 0.5em 0;
+}
+
+sup { line-height: 1ex; }
+
+
+#disqus_thread { padding-top: 0; }
+
+/* @group FancyFirst */
+.emphnext + p:first-letter, p.emphfirst:first-letter {
+	font-size: 48px;
+	padding: 0 0.15em 0 0;
+	margin:  0.05em 0 -0.15em 0;
+	line-height: 1em;
+	float: left;
+}
+
+.emphnext + p:first-line, p.emphfirst:first-line {
+	font-variant: small-caps;
+	font-size: larger;
+}
+/* @end */
+
+.right { float: right; clear: left; }
+.left { float: left; clear: right; }
+.inset { 
+	border: 1px solid silver; 
+	padding: 2px;
+	margin: 0em 0.8em 0.8em 0.8em;
+}
+.right.inset { margin-right: 0 !important; }
+.left.inset { margin-left: 0 !important; }
+.quiet {
+	color: grey;
+	font-size: 0.875em;
+	line-height: 1.714em;
+}
+blockquote {
+	padding: 0 2.8em;
+	margin: 1.714em 0;
+	color: #444;
+	font-size: 0.875em;
+	line-height: 1.714em;
+}
+
+.note {
+	padding-top: 0.5em; 
+	background-color: #fafaff;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+/* @group Table */
+table.neat {
+	width: 80%;
+	margin: 1.5em auto 1.5em auto;
+	table-layout: fixed;
+	border-spacing: 0;
+}
+table.neat tr { text-align: center; }
+table.neat th { font-weight: normal; background-color: #eeeeee; }
+table.neat td { background-color: white; }
+table.neat th.title { border-bottom: 1px solid gray; border-top: 1px solid gray; vertical-align: bottom; background-color: lightgrey; }
+caption { 
+	color: #333;
+	font-size: 0.875em;
+	margin: 0.875em auto 0 auto;
+	line-height: 1.14em;
+	text-align: justify;
+}
+
+/* @end */
+
+/* @group Lists */
+ul {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	line-height: 1.5em;
+	padding-left: 1.5em;
+}
+ul li {
+	list-style-type: square;
+	list-style-position: outside;
+}
+ol li {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+dt { font-weight: bold;}
+dd { margin: 0 0 1.5em 0; text-align: justify; }
+
+ul.compact { margin: 0; padding: 0;}
+ul.compact li {
+	list-style-type: square;
+	list-style-position: inside;
+}
+ul.compact li span.date {	
+	display: none;
+	color: grey;
+	width: 20%;
+}
+ul.compact li a {
+	width: 70%;
+}
+
+ul.notlist { width: 100%; margin: 0; padding: 0;}
+ul.notlist li {
+	width:100%;
+	margin: 1em 0;
+	list-style-type: none;
+	list-style-position: inside;
+}
+ul.notlist li span.date {	
+	display: none;
+	color: grey;
+	width: 20%;
+}
+ul.notlist li a {
+	width: 70%;
+}
+
+li.recent_entry {
+	list-style-position: inside;
+	width:100%;
+	background: whitesmoke; /* Old browsers */
+	background: -moz-linear-gradient(left,  whitesmoke 0%, #fff 50%, whitesmoke 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,whitesmoke), color-stop(0%, #fff), color-stop(100%,whitesmoke)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* IE10+ */
+	background: linear-gradient(left,  whitesmoke 0%, #fff 50%,whitesmoke 100%); /* W3C */
+	padding: 20px 0 0 0;
+	padding:0.5em 0.5em 0 0.5em;
+	margin:0;
+}
+
+.post_img {
+	display: block;
+}
+
+.tag_list_link {
+    color: #000;
+	font-style: normal; 
+	font-size: x-small;
+}
+
+ul.tags {
+	position:relative;
+	display: inline;
+	float: right;
+}
+
+
+
+li.tag
+{
+	margin: 0 3px 0 0;
+	/*padding: 0 1em 0 1em;*/
+	display: inline;
+	background-color: whitesmoke; /* fallback for web browsers that doesn't support RGBa */
+	padding: 1px 2px 2px 2px; /* add some space */
+	color: #222; /* my text color */
+	font-weight: bold;
+	border: 1px solid white;
+	text-shadow: 1px 1px 0px white; /* I like this effect so much */
+	-moz-box-shadow: 0 1px 3px #888;
+	-webkit-box-shadow: 0 1px 3px #888;
+	box-shadow: 0 1px 3px #888;
+}
+
+li.tag:hover
+{
+	background-color: #fee;/*#cfcfcf;*/
+	color: #d62f27;
+	cursor:pointer;
+	text-shadow: 1px 1px 0px white; /* I like this effect so much */
+	-moz-box-shadow: 0 1px 3px #f88;
+	-webkit-box-shadow: 0 1px 3px #f88;
+	box-shadow: 0 1px 3px #f88;
+}
+
+#tags {
+	padding: 0 1em 0 0;
+	display: inline;
+}
+
+.cloud {
+	width: 75%;
+	margin: 0 auto;
+	display: block;
+	padding: 0 0 1em 0; /* add some space */
+	color: #222; /* my text color */
+	font-weight: bold;
+	border: 1px solid white;
+	text-align: center;
+}
+
+.proj_container {
+	text-align: center;
+    overflow: auto;
+}
+
+#proj1 { float: left; width: 33%; padding: 0 0.2% 0 0; background: #eee}
+#proj2 { float: left; width: 33%; padding: 0 0.2% 0 0.2%;}
+#proj3 { float: right; width: 33%; background: #eee; padding: 0;}
+
+.proj_title {
+    text-align: center;
+    display: block;
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	margin: 0 auto;
+	font-variant: small-caps;
+    color: black;
+}
+
+.proj_summary{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.noproject {
+    text-align: center;
+}
+
+.slickbox {
+    overflow: auto;
+    padding: 1em 0 1em 0;
+}
+
+.thin_date {
+    color:#aaa;
+    font-size:100%;
+    font-family:"monofur", "Courier New", monospace;
+    display: inline;
+    position: relative;
+    padding-right: 1em;
+}
+
+.thin_title {
+    font-size:120%;
+    font-family: Palatino, georgia, "times new roman", serif;
+    display: inline;
+    position: relative;
+    color: black;
+}
+
+.thin_post {
+    margin: 0.5em 0 0.5em 0;
+    display: block;
+}
+
+.tag_div
+{	
+    position:relative;
+    display: block;
+}
+
+.foot_item {
+    padding:0;
+    margin:0;
+    font-size:75%;
+}
+
+.bottom_left {
+    padding:0;
+    margin:0;
+    float: left;
+}
+
+.bottom_right {
+    padding:0;
+    margin:0;
+    overflow: hidden;
+    text-align: right;
+}
+
+.next_post {
+    float:right;
+}
+
+.indented {
+    margin-left: 3em;
+}
+
+/* @end */
+
+/* @group Twitter */
+#twitter_update_list { display: inline; margin: 0; }
+#twitter_update_list li { 
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+    }
+#twitter_update_list li:before { content: "\2012 \0020"; }
+.twitter-title { display: inline; margin: 0; }
+.twitter-title a { display: inline; }
+
+/* @group Footnotes */
+.footnotes { color: grey; }
+.footnotes:hover { color: black; }
+.footnotes ol li {
+	list-style-type: decimal;
+	list-style-position: inside;
+	font-size: 75%;
+	line-height: 1.5em;
+}
+.footnotes ol li > a { display: none; }
+/* @end */
+
+/* @group Sections */
+
+.section_title {
+	width: 100%;
+	display:block;
+	font-family: Palatino, georgia, serif;
+	font-size: 150%;
+	position: relative;
+	font-weight: bold;
+	font-variant: small-caps;
+	color: black;
+	margin-right: 7em;
+}
+
+.job_title {
+	width: 100%;
+	display:block;
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	position: relative;
+	font-weight: bold;
+	font-variant: small-caps;
+	color: black;
+	margin-right: 7em;
+}
+
+.job_title:hover,.section_title:hover{
+    color:black;
+}
+
+.lined:before {
+	content: "";
+	border-top: solid 1px black;
+	width: 100%;
+	height: 1px;
+	top: 100%;
+	z-index: 1;
+	display: block;
+	position: absolute;
+}
+
+.section_title span {
+	width: auto !important; /*override the width below*/
+	width: 100%;
+	max-width: 100%;
+	padding: 0 20px;
+	position: relative;
+	z-index: 5;
+}
+
+.invisible {
+	visibility:hidden;
+}
+
+.list_title {
+	margin:0;
+	padding: 0.25em;
+}
+
+.left_list {
+	display:relative;
+	float:left;
+	width:50%;
+}
+
+.right_list {
+	display:relative;
+	float:right;
+	width:50%;
+}
+
+.article_lists {
+	margin:0 0 0 2em;
+	padding:0;
+}
+
+.article_list_container{
+	width:100%;
+	display: relative;
+	margin: 0;
+	
+}
+
+.post_middle {
+	position: relative;
+	padding-bottom: 4em;
+	width: auto !important; /*override the width below*/
+	width: 100%;
+	max-width: 100%;
+}
+
+.post_left {
+	background: #f00;
+	position: relative;
+	float:left;
+	max-width: 20%;
+    margin: 0;
+}
+
+.post_right{
+	background: #0f0;
+	float:left;
+	position: relative;
+	margin: 0;
+	width: auto !important; /*override the width below*/
+	width: 80%;
+	max-width: 80%;
+}
+
+.post_date {
+	position: relative;
+	display: inline;
+	width: 100%;
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+    font-weight: normal;
+    font-style: italic;
+	margin: 0;
+}
+.post_summary { 
+	position: relative;
+	margin-top: 0.5em;
+}
+/* @end */
+
+.post_title {
+	display: block;
+	font-family: Palatino, georgia, serif;
+	font-size: 150%;
+	margin: 0;
+	font-weight: bold;
+	font-variant: small-caps;
+  color: black;
+}
+
+.inpost_title {
+	display: block;
+	font-family: Palatino, georgia, serif;
+	font-size: 200%;
+	margin: 0;
+	font-weight: bold;
+	font-variant: small-caps;
+  color: black;
+  padding-top: 1em;
+}
+
+.recent_post {
+	margin: 0;
+  display: block;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.date_tag {
+	display: block;
+	position: relative;
+}
+
+.space_line {
+	padding-top: 0.25em;
+}
+
+.list .title { font-weight: bold; }
+p.line { position: relative; margin: 0; }
+p.excerpt { margin: 0; }
+.comments { font-size: smaller; position: absolute; color: silver; right: 0; top: 0; }
+.excerpt { color: black; }
+
+/* @group Signature */
+.signature { 
+	margin-top: 3em; 
+	position: relative;
+}
+.signature .author { 
+	font-variant: small-caps; 
+	font-style: normal; 
+	color: black;
+	display: block;
+	margin-bottom: 1.5em;
+}
+.signature .date { 
+	font-size: 87.5%;
+	line-height: 1.5em;
+	display: block; 
+	font-variant: small-caps; 
+	font-style: normal; 
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.signature .location { 
+	display: block; 
+	font-size: 87.5%;
+	line-height: 1.5em;
+	position: absolute;
+	right: 0;
+	top: 1.5em;
+}
+/* @end */
+
+/* @group Code */
+pre {
+	margin: 1em 0 1.5em 0;
+	font-size: 0.75em; /* Hack to make code look same size as body font */  
+	line-height: 1.5em;	
+	color: #111;
+	background: #fffff0;
+	border: 1px solid #ddc;
+	padding: 0.5em 1em;
+	overflow: hidden;
+
+	/* Experimental CSS3 stuff */
+	box-shadow: 1px 1px 6px #ccc;
+	-webkit-box-shadow: 1px 1px 6px #ccc;
+	-moz-box-shadow: 1px 1px 6px #ccc;
+}
+pre:hover {
+	border-right: none;
+	overflow: visible;
+}
+code {
+	font-size: 1em;
+	background-color: #f7f7ff;
+	line-height: 1.4em;
+}
+pre > code {
+	background-color: transparent;
+}
+/* @end */
+
+/* @group Disqus */
+#disqus_thread {
+	margin-top: 2.93em;
+}
+.dsq-comment-body {
+	text-align: justify;
+	line-height: 1.29em;
+}
+.dsq-comment {
+	padding-top: 0 !important;
+	margin-top: 1.7em !important;
+	margin-bottom: 1.9em !important;
+	background-image: none !important;
+}
+.dsq-comment-message {
+	line-height: 1.714em;
+}
+.dsq-comment-header {
+	background-color: whitesmoke !important;
+	border-top: 1px solid silver !important;
+	border-bottom: 1px solid silver !important;
+	margin-bottom: 1.15em !important;
+}
+.dsq-header-time { margin-left: 0 !important; }
+.dsq-comment-header cite { 
+	font-variant: small-caps;
+	margin-left: 0 !important;
+}
+.dsq-comment-footer { 
+	font-size: 75% !important; 
+	margin-top: 1px !important;
+}
+#dsq-options {
+	background: whitesmoke;
+	border-bottom: 1px solid silver;
+	border-top: 1px solid silver;
+	padding: 0 0 0 1em;
+}
+#dsq-comments-count {
+	margin-top: 0.8em !important;
+	margin-bottom: 1.2em !important;
+}
+#dsq-extra-links { padding-left: 0 !important; }
+#dsq-extra-links li img { display: none; }
+#dsq-options-toggle { color: silver; font-size: 75% !important;}
+#dsq-add-new-comment {
+	margin-top: 1.19em !important;
+	margin-bottom: 1.25em !important;
+}
+/* The following position, width and height ensure
+ * that none of the body in the iframe shows through.
+ */
+form#comment {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: white !important;
+}
+/* @end *
+
+/* @group Last.fm */
+#lastfm a { margin-right: 0.7em; }
+/* @end */
+
+/* @group Delicious */
+.delicious-posts { }
+.delicious-posts ul, .delicious-posts li, .delicious-banner { margin: 0; padding: 0 }
+.delicious-posts li { list-style-position: outside; margin-bottom: 1em; margin-left: 1em; text-align: justify; }
+.delicious-post { }
+.delicious-banner { display: none; }
+.delicious-posts a:hover { }
+.delicious-posts a { }
+.delicious-post a { font-weight: bold; }
+p.delicious-extended { font-size: 100%; display: inline; }
+p.delicious-extended:before { content: ' — '; }
+/* @end */
+
+/* @group Footer */
+#footer {
+	margin: 0;
+	color: grey;
+	font-size: 87.5%;
+	line-height: 1.3em;
+}
+#footer address {
+	position: relative;
+	margin: .5em 0 0 0;
+	text-align: right;
+}
+#footer a {
+	font-variant: small-caps;
+	font-style: normal;
+	color: #77d;
+	text-decoration: none;
+}
+#footer .copyright {
+	position: absolute;
+	left: 0;
+	text-align: left;
+	display: block;
+}
+#footer .engine {
+	position: absolute;
+	text-align: right;
+	display: block;
+	right: 0;
+}
+/* @end */
+
+
+/* @group Figures and images */
+dl.figure {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	text-align: center;
+}
+
+dl.figure dd {
+	color: #333;
+	font-size: 0.875em;
+	margin: 0.875em auto 0 auto;
+	line-height: 1.14em;
+	text-align: justify;
+	width: 85%;
+}
+/* @end */
+
+.twocol-list ul { width: 36em; margin-top: 0em; }
+.twocol-list ul li { float: left; width: 17em; }
+.twocol-list br { clear: left; }
+
+.threecol-list ul { width: 36em; margin-top: 0em; }
+.threecol-list ul li { float: left; width: 11em; }
+.threecol-list br { clear: left; }
+
+.section h3 {
+	font-family: Palatino, georgia, serif;
+	font-size: 100%;
+	line-height: 1.43em;
+    margin-top: 1ex;
+    font-style: italic;
+}
+
+/*:link.external { 
+    padding-right: 13px; 
+    background: url(/~rmm/img/external.png) top right no-repeat; 
+}
+:link.pdf { 
+    padding-right: 18px; 
+    background: url(/~rmm/img/icon-pdf.gif) top right no-repeat; 
+}*/
+
+#tool {
+    font-style: italic;
+    font-weight: light;
+    font-size: 80%;
+    text-align: right;
+    float: right;
+    clear: right;
+    overflow: auto;
+}
+
+/* Things to deal with the ugly powered by disqus link */
+.dsq-brlink {display:none;}
+.logo-disqus {display:none;}
