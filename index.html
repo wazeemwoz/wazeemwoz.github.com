@@ -1,7 +1,31 @@
----
-layout: default
----
-<section class="content">
+<!DOCTYPE html>
+<html>
+  <meta charset=utf-8 />
+  <title>  Waseem Suleman </title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="text/javascript" src="/js/sessionvars.js"></script>
+  <script type="text/javascript" src="/js/jquery-1.8.0.min.js"> </script>
+  <script type="text/javascript" src="/js/summarise.js"> </script>
+</head>
+<body>
+  <div id="site">
+    <div id="title">
+    <header>
+      <h1> Waseem Suleman </h1>
+    <header>
+    </div>
+    <div id="page">
+      <div id="header">
+        <nav role="navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/articles/">Articles</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/links/">Links</a></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="content">
 
   <h1 class='section_title'>Hello!</h1>
   <img class='inset right' title='Waseem Suleman' src='/img/me_drink.jpg' alt='Photo of Waseem Suleman' />
@@ -15,57 +39,249 @@ layout: default
     Please check the <i>about</i> page to learn a bit more about me.
   </p>
 
-{% if site.posts.size > 0 %}
+
   <div class="section">
       <a href="#2" class="showhide section_title lined">Latest Posts</a>
       <div class="slickbox" id="2">
-        {% include paginate_thin.liquid %}
+        
+
+    <div class="overflow thin_post">
+        <div class="thin_date">30/10/12 </div>
+        <a href="/2012/10/30/long-title.html">
+            <h1 class="thin_title">This is somehing abou tdjd.</h1>
+        </a>
+        <ul class="compact tags">
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Artwork">Artwork</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/projectc">projectc</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Gaming">Gaming</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Technology">Technology</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="overflow thin_post">
+        <div class="thin_date">18/08/12 </div>
+        <a href="/2012/08/18/most-recent-post.html">
+            <h1 class="thin_title">This is street fighter 4 blah blah</h1>
+        </a>
+        <ul class="compact tags">
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Artwork">Artwork</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/projectc">projectc</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Gaming">Gaming</a></li>
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Technology">Technology</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="overflow thin_post">
+        <div class="thin_date">07/05/10 </div>
+        <a href="/2010/05/07/a-test-post-in-art.html">
+            <h1 class="thin_title">This is street fighter 4 woop wop</h1>
+        </a>
+        <ul class="compact tags">
+        
+            <li class="tag archive_list"><a class="tag_list_link" href="/tag/Artwork">Artwork</a></li>
+        
+        </ul>
+    </div>
+      
+
       </div>
   </div>
-{% endif %}
+
   
   <div class="section">
 	  <a href="#3" class="showhide section_title lined">Current projects</a>
 	  <div class="slickbox" id="3" >
           <p>Right here, is where my current projects are listed.</p>
-		  {% assign proj1 = 'na' %}
-		  {% assign proj2 = 'na' %}
-		  {% assign proj3 = 'na' %}
-          {% assign proj = 0 %}
-          {% for post in site.posts %}
+		  
+		  
+		  
+          
+          
 			
-			{% if (post.project_tag) %}
-				{% if proj3 == 'na' %}
-					{% if proj1 != post.project_tag and proj2 != post.project_tag %}
+			
+				
+					
 
-						{% if proj1 == 'na' %}
-							{% assign proj1 = post.project_tag %}
-                            {% assign proj = 1 %}
-						{% else %}
-							{% if proj2 == 'na' %}
-								{% assign proj2 = post.project_tag %}
-                                {% assign proj = 2 %}
-							{% else %}
-								{% assign proj3 = post.project_tag %}
-                                {% assign proj = 3 %}
-							{% endif %}
-						{% endif %}
+						
+							
+                            
+						
                         
-						<div id="proj{{ proj }}" class="recent_project">
-							<a href="/tag/{{ post.project_tag }}">
-                                <h1 class="proj_title">{{ site.my_project[post.project_tag].title }}</h1>
-                                <img src="{{ site.my_project[post.project_tag].image }}" class="post_img space_line parentsize"/>
+						<div id="proj1" class="recent_project">
+							<a href="/tag/projectc">
+                                <h1 class="proj_title">Project C</h1>
+                                <img src="/img/projectc.jpg" class="post_img space_line parentsize"/>
 							</a>
-                            <p class="proj_summary">{{ site.my_project[post.project_tag].description }}</p>
+                            <p class="proj_summary">This is project C. The image wont work.</p>
 						</div>
-					{% endif %}
-				{% endif %}
-			{% endif %}
-          {% endfor %} 
-          {% if proj1 == 'na' %}
-            {{ "<p class='noproject'>Seems like im not participating in any project at the moment.</p>" }}
-          {% endif %}
+					
+				
+			
+          
+			
+			
+				
+					
+				
+			
+          
+			
+			
+          
+			
+			
+				
+					
+
+						
+							
+								
+                                
+							
+						
+                        
+						<div id="proj2" class="recent_project">
+							<a href="/tag/projectb">
+                                <h1 class="proj_title">Project B</h1>
+                                <img src="/img/projectb.jpg" class="post_img space_line parentsize"/>
+							</a>
+                            <p class="proj_summary">This is project B. The image wont work.</p>
+						</div>
+					
+				
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+				
+					
+				
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+          
+			
+			
+				
+					
+
+						
+							
+								
+                                
+							
+						
+                        
+						<div id="proj3" class="recent_project">
+							<a href="/tag/projecta">
+                                <h1 class="proj_title">Project A</h1>
+                                <img src="/img/projecta.jpg" class="post_img space_line parentsize"/>
+							</a>
+                            <p class="proj_summary">This is project A. The image wont work.</p>
+						</div>
+					
+				
+			
+          
+			
+			
+				
+			
+          
+			
+			
+				
+			
+          
+			
+			
+				
+			
+          
+			
+			
+				
+			
+           
+          
 	  </div>  
   </div>
   
 </section>
+
+      
+      <div id="bottom_block">
+          <div class="bottom_left">
+            <span class="foot_item">
+              Waseem Suleman (<a href="/about/">about me</a>)</small><br />
+              Freelance Consultant<br />
+              Waseem.Suleman@gmail.com
+            </span>
+          </div>
+          <div class="bottom_right">
+            <span class="foot_item">
+                <a id="home-footer-twitter" title="My Twitter account" target="_blank" href="http://twitter.com/WSuleman">
+                  <img src="/img/twitter.png" width="32" height="32" border="0" alt="twitter.com/WSuleman">
+                </a>
+                <a href="http://uk.linkedin.com/pub/waseem-suleman/53/775/a80" title="My LinkedIn profile">
+                  <img src="/img/linkedin.png" width="32" height="32" border="0" alt="View my profile on LinkedIn">
+                </a>
+            </span>
+          </div>
+      </div>
+    </div>
+    
+    <div id="footer">
+      <address>
+      <span class="copyright">
+        Copyright &copy; 2012 <a href="/about/">Waseem Suleman</a>
+        <br/> Original design by <a href="http://mark.reid.name/">Mark Reid</a> 
+        (<a rel="licence" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Some rights reserved</a>)
+      </span>
+      <span class="engine">
+        Powered by 
+        <a href="http://github.com/mojombo/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+      </span>
+    </address>
+
+    </div>
+    
+  </div>
+</body>
+</html>
+
