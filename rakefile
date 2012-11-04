@@ -59,9 +59,15 @@ namespace :deploy do
     puts "move complete"
   end
   
+  desc "master add"
+  task :master_add => :site_changed do
+    puts "adding changes to dev branch"
+    system('git add -A')
+    puts "git dev add complete"
+  end
   
   desc "master commit"
-  task :master_commit => :site_changed do
+  task :master_commit => :master_add do
     message = ENV["DEV_MESSAGE"] || "commit not described"
     puts "commit changes to master branch"
     system("git commit -am \"#{message}\"")
