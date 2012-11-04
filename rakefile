@@ -32,22 +32,44 @@ namespace :deploy do
     puts "upload dev complete"
   end
   
-  desc "change master"
-  task :change_master => :upload_dev do
-    message = ENV["DEV_MESSAGE"] || "commit not described"
-    puts "moving dev _site to master"
-    system("git update-ref refs/heads/master $(echo \"#{message}\" | git commit-tree dev\^{tree}:_site -p $(cat .git/refs/heads/master))")
+  desc "temp site"
+  task :temp_site => :upload_dev do
+    temp = ENV["TEMP_DEST"] || "C:\\Sites\\temp"
+    puts "clearing temp folder"
+    system("DEL /Q #{temp}")
+    puts "moving dev _site to temp folder"
+    system("COPY _site #{temp}")
     puts "move complete"
   end
   
   desc "checkout master"
-  task :branch_master => :change_master do
+  task :branch_master => :temp_site do
     puts "checkout master"
     system('git checkout master')
   end
   
+  desc "temp site"
+  task :site_changed => :branch_master do
+    message = ENV["DEV_MESSAGE"] || "commit not described"
+    temp = ENV["TEMP_DEST"] || "C:\\Sites\\temp"
+    puts "clearing site folder"
+    system("DEL /Q *")
+    puts "moving temp to master"
+    system("COPY #{temp}")
+    puts "move complete"
+  end
+  
+  
+  desc "master commit"
+  task :master_commit => :site_changed do
+    message = ENV["DEV_MESSAGE"] || "commit not described"
+    puts "commit changes to master branch"
+    system("git commit -am \"#{message}\"")
+    puts "git master commit complete"
+  end
+  
   desc "push master"
-  task :upload_master => :branch_master do
+  task :upload_master => :master_commit do
     puts "pushing master to github"
     system('git push -f origin master')
     puts "upload master complete"
