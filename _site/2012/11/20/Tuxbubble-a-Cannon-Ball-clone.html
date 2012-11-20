@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <meta charset=utf-8 />
-  <title>  Its finally live! |  Waseem Suleman </title>
+  <title>  Tux-Bubble a Cannon Ball clone |  Waseem Suleman </title>
   <link rel="stylesheet" href="/css/styles.css" />
   <script type="text/javascript" src="/js/sessionvars.js"></script>
   <script type="text/javascript" src="/js/jquery-1.8.0.min.js"> </script>
@@ -26,44 +26,76 @@
         </nav>
       </div>
       
-    <img class="post_img space_line parentsize" src="/img/helloworld.jpg" />
 
-
-<h1 class="inpost_title">Its finally live!</h1>
+<h1 class="inpost_title">Tux-Bubble a Cannon Ball clone</h1>
 
 <div class="date_tag">
-    <h2 class="thin_date">05/11/12 21:44:40 </h2>
+    <h2 class="thin_date">20/11/12 21:42:00 </h2>
 </div>
 
-<p>I have, for a while, been aiming to get a personal blog setup. My main driver being that I would like to document some of the thoughts and projects that I take part in.</p>
+<script>
 
-<p>The <a href='/about/'>about page</a> has a somewhat more business oriented introduction to myself; however this is primarily a hobby project.</p>
+var keys = [];
+window.addEventListener("keydown",
+    function(e){
+        keys[e.keyCode] = true;
+        switch(e.keyCode){
+            case 37: case 39: case 38:  case 40: // Arrow keys
+            case 32: e.preventDefault(); break; // Space
+            default: break; // do not block other keys
+        }
+    },
+false);
+window.addEventListener('keyup',
+    function(e){
+        keys[e.keyCode] = false;
+    },
+false);
 
-<p>I wanted to use this post to not only describe this website but also to describe the structure/design of the site.</p>
-<h2>design</h2>
-<p>I wanted to make a clean website, one design I really loved was that of <a href='http://www.cs.nott.ac.uk/~rmm/'>Richard Mortier</a>. The original design of that website was done by <a href='http://mark.reid.name/'>Mark Reid</a> whom has kindly allowed anyone to use the design, thanks! Anyway, being me I wanted to put a bit of my own mark, for better or worse.</p>
+</script><h2>Tux Bubble</h2>
+<p>One of the arcade game that I really enjoyed playing was called <em>Pang</em> (more accurately <em>Super Pang</em>). This game was inspired the 1984 game called <em>Cannon Ball</em>, based on the simple concept of bouncing bubbles that you shoot creating smaller balls until too small to split. I knew this wouldn&#8217;t work well hence I already have a video ready, so just see for yourself.</p>
+<iframe frameborder='0' height='315' src='http://www.youtube.com/embed/FWF0y6foVM4' width='420'> </iframe>
+<p>Cool right? So simple, yet so fun.</p>
 
-<p>This design is the result of the butchering of Mark&#8217;s design, while not nearly as good, it certainly feels like my own so I am content. Things to do in this area is to clean up the CSS (its very ugly right now!), to adjust/tweak CSS for posts.</p>
-<h2>Jekyll</h2>
-<p>You may have noticed that this website is powered by Jekyll, it seems it is almost a ritual to perform an explanation of what Jekyll is however this is 2012 and Jekyll is probably not as edgy/cool as it once was on the web. Nevertheless for those that don&#8217;t know, Jekyll is a cool Ruby program which looks at a directory with a certain structure and content, converting it into static (that&#8217;s standard old-school) html.</p>
+<p>Anyway, I wanted to familiarise myself with some of the basic Javascript syntax so what better way to learn than getting stuck in and writing a game? There really was no thought or plan behind this, its just one hack after another and it shows; in chrome on mint 13 the images seem to have loading issues and will flash, in Firefox however it runs smoothly so I recommend trying Firefox if Chrome has issues for you.</p>
+<div class='section'>
 
-<p>Hopefully you can imagine the many benefits of serving static pages and why I decided to go down this route.</p>
+<a class='showhide job_title lined' href='#1'><h2>Try Tuxbubble v0.001</h2></a>
 
-<p>I will write more about Jekyll as I learn more tricks and continue to improve this blog.</p>
+<div class='hide_this slickbox' id='1'>
 
-<p>For now though, I will leave it like this :).</p>
+<p>
 
-<p>P.S. If the rest of the site seems barren it is because it is designed to adapt to lack of content (which is currently the case right now).</p>
+Controls are: Left arrow key and Right arrow key to move in respective directions. Enter to pause and unpause, getting hit by the bubble will pause the game.
+
+</p>
+
+<canvas id='c'>
+
+</canvas>
+
+<script src='/js/tuxbubble/newGame.js'>
+
+</script>
+
+</div>
+
+</div>
+<p>Current to-do list regarding this:</p>
+
+<p>- Refactor the whole code to make it cleaner and nicer. - Fix the glitch causing the balls to get stuck to the edge of the screen (this happens if the big bubble splits too close to the edge causing a newly created bubble to be produced outside of the screen) - Find a cheap server hosting to develop some kind of leader board. - Add a game menu. - Load images prior to play (so tux doesn&#8217;t flash on initial load in chrome)</p>
+
+<p>So there you go, if you have a go then post the score you get in the comments, currently my score high is 1290 lets see if you can beat it.</p>
 
 <div id="page-navigation"> 
         <div class="clear">&nbsp;</div> 
         <div class="bottom_left"> 
          
+                <a href="/2012/11/19/mint-and-bubbles.html" title="Previous Post: Back to a 'nix enviroment">&laquo; Back to a 'nix enviroment</a> 
+         
         </div> 
 
         <div class="next_post"> 
-         
-                <a href="/2012/11/19/mint-and-bubbles.html" title="next Post: Back to a 'nix enviroment">Back to a 'nix enviroment &raquo; </a> 
          
         </div> 
         <div class="clear">&nbsp;</div> 
@@ -75,9 +107,9 @@
     <ul class="compact">
      <li id="tags">Tags:</li>
     
-        <li class="tag archive_list"><a class="tag_list_link" href="/tag/jekyll">jekyll</a></li>
+        <li class="tag archive_list"><a class="tag_list_link" href="/tag/Tux-Bubble">Tux-Bubble</a></li>
     
-        <li class="tag archive_list"><a class="tag_list_link" href="/tag/site">site</a></li>
+        <li class="tag archive_list"><a class="tag_list_link" href="/tag/Game">Game</a></li>
     
     </ul>
 </div>
