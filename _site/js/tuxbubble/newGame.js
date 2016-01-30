@@ -2,7 +2,6 @@ var pause = true, width = 600, height = 500, platformHeight = 10, c = document.g
 var myClouds = new Clouds(10,1), UP = 'a', DOWN = 'd', RIGHT = 'r', LEFT = 'l', arrows, score,gLoop,bLoop, breaking, luck;
 var REGULAR = 1, BUSTER = 2, TIME = 3, BLACK = 4, timeStopped;
 var luck_modifier = 0.00012;
-
 c.width = width;
 c.height = height;
 
@@ -244,6 +243,7 @@ var player = new (function(){
     me.X = 0;
     me.Y = 0;
     me.imgLoc = "/img/tuxbubble/"
+    me.walkSpriteCount = 4;
 
     me.init = function(){
 		me.imgIndex = 0;
@@ -253,8 +253,13 @@ var player = new (function(){
 		me.frames = 1;
 		me.actualFrame = 0;
 		me.interval = 0;
-		me.image = new Image();
-		me.image.src = me.imgLoc + "r1.png";
+        me.leftSprite = new Image();
+        me.rightSprite = new Image();
+        me.shotSprite = new Image();
+        me.leftSprite.src = me.imgLoc + "left.png";
+        me.rightSprite.src = me.imgLoc + "right.png";
+        me.shotSprite.src = me.imgLoc + "s0.png";
+		me.image = me.rightSprite;
 		me.setPosition(~~((width+me.width)/2), height-(me.height+platformHeight));
 	}
 	
@@ -272,7 +277,15 @@ var player = new (function(){
 		try{
 			ctx.fillStyle=me.col;
 			//ctx.fillRect(me.X,me.Y,me.width,me.height);
-			ctx.drawImage(me.image, 0, 0, me.width, me.height, me.X, me.Y, me.width, me.height);
+			ctx.drawImage(me.image, 
+                          me.imgIndex*me.width, 
+                          0, 
+                          me.width, 
+                          me.height, 
+                          me.X, 
+                          me.Y, 
+                          me.width, 
+                          me.height);
 		}catch(e) {};
 		if(me.interval == 4){
 			if(me.actualFrame == me.frames){
@@ -297,8 +310,7 @@ var player = new (function(){
 			if(me.imgIndex == 4){
 				me.imgIndex = 0;
 			}
-			me.image.src = me.imgLoc + "l" + me.imgIndex + ".png";
-			//console.log(me.imgIndex);
+            me.image = me.leftSprite;
 		}  
     }
   
@@ -314,12 +326,13 @@ var player = new (function(){
 			if(me.imgIndex == 4){
 				me.imgIndex = 0;
 			}
-			me.image.src = me.imgLoc + "r" + me.imgIndex + ".png";
+            me.image = me.rightSprite;
 		}  
     }/**/
 
 	me.fireShot = function(){
-		me.image.src = me.imgLoc + "s0.png";
+		me.image = me.shotSprite;
+        me.imgIndex = 0;
 		if(me.alive){
 			if(arrows.arrow1 == undefined){
 				arrows.arrow1 = new Arrow(me.X+(me.width/2), me.Y, me.arrSpeed);
